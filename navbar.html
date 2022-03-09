@@ -7,39 +7,66 @@
     <title>Navigation Bar</title>
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+    <!-- width: 100% at all breakpoints -->
     <div class="container-fluid">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <!-- レスポンシブで折りたたむため、.navbar を navbar-expand-{サイズ}でラッピング（指定したサイズ以下は折りたたむ -->
+        <!-- この場合は lg (992px以下) では折りたたむ-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- .navbar-brand 会社や製品、プロジェクト名に使用する -->
             <a href="#" class="navbar-brand">Company Name/Logo</a>
+
+            <!-- 折りたたまれないナビゲーションバーには .navbar-expandクラスを追加。-->
+            <!-- 折りたたまれるナビゲーションバーには、 .navbar-expandクラスを追加しない -->
+            <!-- .navbar-toggler は collapse プラグインや他の navigation toggling で使用する。 -->
+            <!-- data-toggle="collapse"で表示非表示を切り替える -->
+            <!-- 「aria-controls」には開閉させる要素のidを指定します。 -->
+            <!-- 「aria-expanded」は開閉の状態をユーザーに伝えます。開いているならtrue。閉じているならfalse。 -->
+            <!-- 「aria-label」は要素のラベルにする文字列を属性値として指定する属性 -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- .collapse.navbar-collapse 親要素のブレークポイントによってナビゲーションバーのコンテンツをグループ化および非表示にします。 -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- .navbar-nav for a full-height and lightweight navigation (including support for dropdowns). -->
+                <!-- ul に navbar-nac -->
                 <ul class="navbar-nav mr-auto">
+                    <!-- li に nav-item  -->
                     <li class="nav-item active">
+                        <!-- .sr-only を指定した要素は、スクリーンリーダー(読み上げ機能) のみに読み上げられる。-->
                         <a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Link</a>
                     </li>
+                    <!-- dropdown class -->
                     <li class="nav-item dropdown">
+                        <!-- dropdown-toggle　のクラスは 押すとドロップダウンの表示・非表示が切り替わるやつ -->
+                        <!-- data-toggle で dropdown の オンオフを受け取る -->
+                        <!-- aria-haspopup は popup の状態をユーザーに伝える。開いているならtrue。閉じているならfalse -->
+                        <!-- aria-expanded は開閉の状態をユーザーに伝えます。開いているならtrue。閉じているならfalse。 -->
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <!-- toggle で オンオフを切り替えると dropdown-menu が開き、その要素のdropdown-item が表示される -->
+                        <!-- aria-labelledby 属性には、入力要素、ウィジェット、グループなどのオブジェクトのラベルの要素の ID が含まれます。 属性は、オブジェクトとそのラベルの間の関係を確立します。 -->
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a href="#" class="dropdown-item">DropDown 1</a>
                             <a href="#" class="dropdown-item">DropDown 2</a>
                         </div>
                     </li>
                 </ul>
+                <!-- form-inline は formをインライン要素にする。 my は 上下方向マージン。my-lg-0 は 上下方向マージンを lg(992以上) の時 0にする。 -->
                 <form action="" class="form-inline my-2 my-lg-0">
-                    <input type="serach" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+                    <!-- mr-sm-2 は margin-right-2  -->
+                    <input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </body>
 </html>
